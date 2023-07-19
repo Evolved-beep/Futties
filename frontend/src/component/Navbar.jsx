@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import '../assets/styles/Navbar.css'
+import { Link } from "react-router-dom";
 
 
 const Navbar = () => {
@@ -8,7 +9,7 @@ const Navbar = () => {
             <h1>Futties</h1>
             <div className="first_container">
                 <ul>
-                    <li>Football</li>
+                    <Link to='/football'><li>Football</li></Link>
                     <li>NBA</li>
                     <li>Retro</li>
                 </ul>

@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row {
+    flex-flow: row wrap;
+}
+
+.jersey_container {
+    display: grid;
+    grid-gap: 12px;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 12px;
+}
+
+
+@media screen and (max-width:768px) {
+
+    .jersey_container {
+        grid-template-columns: repeat(2,1fr);
+    }
+    
+    
+}
+
+@media screen and (max-width:425px) {
+    .jersey_container {
+        grid-template-columns: repeat(1,1fr);
+        width: 100%;
+    }
+}
