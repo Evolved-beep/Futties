@@ -9,7 +9,7 @@ const Navbar = () => {
             <h1>Futties</h1>
             <div className="first_container">
                 <ul>
-                    <Link to='/football'><li>Football</li></Link>
+                    <Link to='/product/football'><li>Football</li></Link>
                     <li>NBA</li>
                     <li>Retro</li>
                 </ul>
