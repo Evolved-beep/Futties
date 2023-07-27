@@ -1,19 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useState ,useEffect } from "react";
 import { useParams } from "react-router-dom";
+import JerseyDetail from "../component/JerseyDetail";
 
 const ProductDetail = () => {
     const {id} = useParams()
-    console.log(id)
+    const [product, setProduct] = useState([])
 
     useEffect(() => {
         const getOneProduct = async() => {
-            const response = await fetch(`http://localhost:3000/product/football/${id}`)
+            const response = await fetch(`http://localhost:3000/api/product/football/${id}`)
             const data = await response.json()
-            console.log(data)
+            setProduct(data)
         }
         getOneProduct()
     },[id])
 
+    
+    return(
+        <JerseyDetail 
+            img={product.imageUrl}
+            description={product.description}
+            title={product.title}
+            price={product.price}
+        />   
+    )
 }
 
 export default ProductDetail

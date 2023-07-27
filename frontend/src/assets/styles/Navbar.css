@@ -39,7 +39,20 @@ a {
     border-bottom: 1px solid #F8F8F8;
 }
 
-button {
+.last_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px;
+}
+
+.last_container img {
+    position: relative;
+    margin: 0 16px 0 0;
+    cursor: pointer;
+}
+
+.btn_btn {
     padding: 8px 22px;
     cursor: pointer;
     color: #F8F8F8;
@@ -48,21 +61,22 @@ button {
     font-size: 14px;
 }
 
-button:nth-child(1){
+.btn_btn:nth-child(2){
     border: 1px solid rgba(211, 211, 211, 0.5);
     background-color: #282c34;
 }
 
-button:nth-child(2){
+.btn_btn:nth-child(3){
     background-color: #F8F8F8;
     color: #282c34;
     border: none;
 }
 
-button:nth-child(1):hover{
+.btn_btn:nth-child(2):hover{
     border: 1px solid rgb(211, 211, 211);
 }
 
-button:nth-child(2):hover{
+.btn_btn:nth-child(3):hover{
     opacity: 0.5;
 }
+

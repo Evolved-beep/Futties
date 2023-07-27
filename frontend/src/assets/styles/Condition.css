@@ -1,0 +1,40 @@
+.futties_condition {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 64px 0;
+    color: #f3f3f3;
+}
+
+.futties_condition h1 {
+    padding: 0 0 32px;
+}
+
+.condition_delivery {
+    display: flex;
+    max-width: 72rem;
+}
+
+.first_condition, .second_condition, .thrid_condition, .fourth_condition {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 30px;
+    max-width: 25%;
+}
+
+.promesse {
+    margin: 0 0 12px ;
+}
+
+.promesse_desc {
+    font-size: 14px;
+}
+
+.svg {
+    height: 50px;
+    width: 50px;
+    margin-bottom: 12px;
+}

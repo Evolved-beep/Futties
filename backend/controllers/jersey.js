@@ -32,3 +32,18 @@ exports.getJersey = (req,res) => {
             });
            })
 }
+
+exports.getOneJersey = (req,res) => {
+    Jersey.findOne({
+        _id: req.params.id
+    })
+    .then((jersey) => {
+        res.status(200).json(jersey);
+    })
+    .catch((error) => {
+        res.status(400).json({
+            error: error
+        });
+    })
+
+}

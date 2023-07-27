@@ -15,13 +15,12 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="last_container">
-                <button>Log in</button>
-                <button>Sign up</button>
+                <Link to="/cart"><img src="/svg/cart.png" alt="" /></Link>
+                <Link to="/login"><button className="btn_btn">Log in</button></Link>
+                <Link to='/signup'><button className="btn_btn">Sign up</button></Link>
             </div>
         </nav>
     )
-
-
 }
 
 export default Navbar
