@@ -6,7 +6,7 @@ const jerseyRoutes = require('./routes/product');
 const userRoutes = require("./routes/user")
 const bodyParser = require("body-parser");
 
-mongoose.connect('mongodb+srv://vapoojr:vapoojr80080@futties.pyyrzag.mongodb.net/?retryWrites=true&w=majority',
+mongoose.connect(process.env.DATABASE_URL,
 {   useNewUrlParser: true,
     useUnifiedTopology:true})
 .then(() => console.log("Connexion à MongoDB réussie !"))

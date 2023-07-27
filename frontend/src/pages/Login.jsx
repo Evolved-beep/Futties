@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import '../assets/styles/Login.css'
 import { Link } from "react-router-dom";
 
+
 const Login = () => {
     const [email,setEmail] = useState('')
     const [password, setPassword] = useState('')
     const token = 'RANDOM_SECRET_TOKEN'
-
-    const inputValue = {email, password}
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -44,7 +43,7 @@ const Login = () => {
                                placeholder="Mot de passe" 
                                onChange={e => setPassword(e.target.value)}
                                />
-                        <button className="btn_login">Se connecter</button>
+                        <button className="btn_login" onClick={handleSubmit}>Se connecter</button>
                     </form>
                     <Link to='/signup'>Pas encore inscrit ? Inscrivez-vous !</Link>
                 </div>
