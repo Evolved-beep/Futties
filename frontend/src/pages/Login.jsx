@@ -1,32 +1,24 @@
 import React, { useState } from "react";
 import '../assets/styles/Login.css'
 import { Link } from "react-router-dom";
+import { getToken, getUserProfile } from "../api/fetchData";
+import { useDispatch } from "react-redux";
+import { addToken, userValue } from "../auth/Authuser";
+
 
 
 const Login = () => {
     const [email,setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const token = 'RANDOM_SECRET_TOKEN'
+    const inputValue = {email,password}
+    const dispatch = useDispatch()
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault()
-        const userLogin = async() => {
-            const requestOptions = {
-                method: 'POST',
-                headers:{
-                    'Content-Type': 'application/json',
-                    'Authorization' : `Bearer ${token}`
-                },
-                body: JSON.stringify({
-                    email:email,
-                    password:password
-                })
-            }
-            const response = await fetch("http://localhost:3000/api/users/login", requestOptions )
-            const data = await response.json()
-            console.log(data)
-        }
-        userLogin()
+        const token = await getToken(inputValue)
+        dispatch(addToken(token))
+        const getUserData = await getUserProfile(token)
+        dispatch(userValue(getUserData))
     }
  
     return(

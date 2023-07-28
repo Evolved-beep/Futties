@@ -9,7 +9,12 @@ exports.createUser = (req, res,next) => {
     .then(hash => {
         const user = new User({
             email: req.body.email,
-            password: hash
+            password: hash,
+            firstname: req.body.firstname,
+            lastname: req.body.lastname, 
+            adress: req.body.adress, 
+            zipcode: req.body.zipcode, 
+            city: req.body.city
         })
         user.save()
         .then(() => res.status(201).json({message:'Utilisateur crée'}))
@@ -48,6 +53,15 @@ exports.login = (req, res, next) => {
 
 }
 
-exports.testToken = (req,res) => {
-    res.status(200).json({message: 'Vous êtes bien authentifié'})
+exports.getProfile = (req,res) => {
+    User.findOne({token:req.body.token})
+    .then(user => {
+        res.status(200).json({
+                            lastname:user.lastname,
+                            firstname: user.firstname,
+                            adress:user.adress,
+                            zipcode: user.zipcode,
+                            city: user.city
+        })
+    })
 }
