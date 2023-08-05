@@ -23,8 +23,8 @@ exports.createUser = (req, res,next) => {
     .catch(error => res.status(500).json({error}));
 }
 
-exports.login = (req, res, next) => {
-   User.findOne({email: req.body.email})
+exports.login = async (req, res, next) => {
+    await User.findOne({email: req.body.email})
     .then(user => {
         if(user === null){
             res.status(401).json({message:'Paire identifiant/mot de passe incorrect'});
@@ -35,14 +35,15 @@ exports.login = (req, res, next) => {
                     res.status(401).json({message:'Paire identifiant/Mot de passe incorrect'})
                 } else {
                     res.status(200).json({
-                        userId: user._id,
                         token: jwt.sign(
                             {userId: user._id},
                             process.env.TOKEN_KEY,
                             {expiresIn: '24h'}
                         )
                     })
-                }
+                    console.log(user._id);
+                    next()  
+                } 
             })
             .catch(error => {
                 res.status(500).json(console.error(error))
@@ -53,15 +54,36 @@ exports.login = (req, res, next) => {
 
 }
 
-exports.getProfile = (req,res) => {
-    User.findOne({token:req.body.token})
-    .then(user => {
+exports.userProfile = async (req,res)=> {
+    await User.findOne({email: req.body.email})
+    .then((user)=> {
         res.status(200).json({
-                            lastname:user.lastname,
-                            firstname: user.firstname,
-                            adress:user.adress,
-                            zipcode: user.zipcode,
-                            city: user.city
+            _id: user.id,
+            firstname: user.firstname, 
+            lastname: user.lastname, 
+            adress: user.adress, 
+            zipcode: user.zipcode, 
+            city: user.city
         })
+        console.log(user);
     })
+    .catch(error => {
+        res.status(400).json(console.error({message:'Authentification impossible'}))
+    })
+   
+  }
+
+exports.modifyProfile = (req,res) => {
+    User.updateOne()
+    .then((user) => {
+        res.status(200).json({
+            lastname: user.lastname,
+            firstname: user.firstname,
+            adress: user.adress,
+            zipcode: user.zipcode,
+            city: user.city
+        })
+        console.log(user);
+    })
+    .catch(error => res.status(400).json({error}));
 }

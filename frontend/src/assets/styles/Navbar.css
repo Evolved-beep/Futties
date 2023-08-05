@@ -48,8 +48,8 @@ a {
 
 .last_container img {
     position: relative;
-    margin: 0 16px 0 0;
     cursor: pointer;
+    padding: 0 5px;
 }
 
 .btn_btn {
@@ -61,22 +61,44 @@ a {
     font-size: 14px;
 }
 
-.btn_btn:nth-child(2){
+.btn_btn_login, .btn_btn_logout{
     border: 1px solid rgba(211, 211, 211, 0.5);
     background-color: #282c34;
+    padding: 8px 22px;
+    cursor: pointer;
+    color: #F8F8F8;
+    margin: 0 20px;
+    border-radius: 5px;
+    font-size: 14px;
 }
 
-.btn_btn:nth-child(3){
+.btn_btn_signup{
     background-color: #F8F8F8;
     color: #282c34;
     border: none;
+    padding: 8px 22px;
+    cursor: pointer;
+    margin: 0 12px;
+    border-radius: 5px;
+    font-size: 14px;
 }
 
-.btn_btn:nth-child(2):hover{
+.btn_btn_login, .btn_btn_logout:hover{
     border: 1px solid rgb(211, 211, 211);
 }
 
-.btn_btn:nth-child(3):hover{
+.btn_btn_signup:hover{
     opacity: 0.5;
 }
 
+.profil_svg {
+    height: 30px;
+    cursor: pointer;
+}
+
+.container_logout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 16px;
+}

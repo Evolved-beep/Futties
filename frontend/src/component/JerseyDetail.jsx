@@ -1,25 +1,30 @@
 import React, { useState } from "react";
 import '../assets/styles/JerseyDetail.css'
 import Condition from "./Condition";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/CartSlice";
 
 
-const JerseyDetail = (props) => {
+const JerseyDetail = ({img,title,description,price,id}) => {
     const [selectedValue, setSelectedValue] = useState('')
+    const dispatch = useDispatch()
 
     const handleClick = () => {
-        alert('Click me')
+        dispatch(addToCart({title, selectedValue, id, price, img}))
     }
+
+    console.log(title, price, id);
 
     return(
         <section>
             <div className="product_presentation">
                 <div className="product_img">
-                    <img src={props.img} alt={props.description} />
+                    <img src={img} alt={description} />
                 </div>
                 <div className="product_container">
                     <div className="product_detail">
-                        <h1>{props.title}</h1>
-                        <h2>{props.price} €</h2>
+                        <h1>{title}</h1>
+                        <h2>{price} €</h2>
                     </div>
                     <div className="product_size">
                         <label>Choisissez votre taille:</label>
@@ -44,7 +49,6 @@ const JerseyDetail = (props) => {
                         <li></li>
                     </ul>
                 </div>
-
             </div>
             <Condition />
         </section>

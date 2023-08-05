@@ -15,9 +15,9 @@ const ProductDetail = () => {
         getOneProduct()
     },[id])
 
-    
     return(
         <JerseyDetail 
+            id={id}
             img={product.imageUrl}
             description={product.description}
             title={product.title}

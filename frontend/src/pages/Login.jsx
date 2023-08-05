@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import '../assets/styles/Login.css'
 import { Link } from "react-router-dom";
-import { getToken, getUserProfile } from "../api/fetchData";
+import { editValueUser, getToken, getUser} from "../api/fetchData";
 import { useDispatch } from "react-redux";
-import { addToken, userValue } from "../auth/Authuser";
-
-
+import { addToken, isLoggin, userValue} from "../redux/Authuser";
 
 const Login = () => {
     const [email,setEmail] = useState('')
@@ -16,9 +14,11 @@ const Login = () => {
     const handleSubmit = async(e) => {
         e.preventDefault()
         const token = await getToken(inputValue)
+        console.log(token);
         dispatch(addToken(token))
-        const getUserData = await getUserProfile(token)
-        dispatch(userValue(getUserData))
+        const userData = await getUser(token, inputValue)
+        dispatch(userValue(userData))
+        dispatch(isLoggin(true))
     }
  
     return(
