@@ -28,14 +28,41 @@
     width: 100%;
     padding: 10px 32px;
     margin: 12px 0 12px 0;
+    border: 1px solid #282c34;
+    border-radius: 10px;
 }
 
 .btn_login {
     padding: 12px 20px;
-    border:1px solid #f3f3f3;
+    border: 1px solid #f3f3f3;
     color: #fff;
     cursor: pointer;
     background-color: #164194;
     border-radius: 18px;
     margin: 20px 0;
+}
+
+@media screen and (max-width:820px) {
+    .login_input {
+        padding: 34px;
+    }
+
+    .login_input h1{
+        font-size: 20px;
+    }
+
+    .login_input a {
+        font-size: 14px;
+    }
+
+    .form_login input {
+        margin: 8px 0 10px 0;
+    }
+
+    .form_login button {
+        font-size: 14px;
+        margin: 16px 0;
+    }
+
+    
 }

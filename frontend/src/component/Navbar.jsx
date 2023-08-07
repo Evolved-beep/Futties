@@ -2,12 +2,11 @@ import React, { useEffect } from "react";
 import '../assets/styles/Navbar.css'
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { isLoggin, loggoutUser } from "../redux/Authuser";
+import { loggoutUser } from "../redux/Authuser";
 
 const Navbar = () => {
     const login = useSelector(state => state.login.isLoggin)
     const dispatch = useDispatch()
-    console.log(login)
 
     const handleSubmit = (e) => {
         e.preventDefault()

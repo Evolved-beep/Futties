@@ -14,7 +14,7 @@ const Condition = () => {
                     <div className="second_condition">
                         <img src="/svg/prime.png" className="svg" alt="svg abonnement" />
                         <p className="promesse">Livraison express avec Futties plus</p>
-                        <p className="promesse_desc">tsr</p>
+                        <p className="promesse_desc">Voir condition d'abonnement</p>
                     </div>
                     <div className="thrid_condition">
                         <img src="/svg/return.png" className="svg" alt="svg retour" />

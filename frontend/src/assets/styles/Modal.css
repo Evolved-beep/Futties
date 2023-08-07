@@ -1,0 +1,23 @@
+.success_container {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%,0);
+    display: flex;
+    align-items: center;
+    background-color: rgba(25, 135, 84, 0.7);
+    padding: 6px 20px;
+    border-radius: 16px;
+}
+
+.success_container img {
+    height: 34px;
+    margin: 0 12px 0 0;
+}
+
+.success_container p {
+    color: rgb(227, 238, 227);
+    text-align: center;
+}
+
+

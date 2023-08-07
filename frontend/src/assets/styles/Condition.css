@@ -38,3 +38,47 @@
     width: 50px;
     margin-bottom: 12px;
 }
+
+
+@media screen and (max-width: 1024px) {
+    .condition_delivery {
+        max-width: 42rem;
+    }
+
+    .svg {
+        height: 40px;
+        width: 40px;
+    }
+
+    .promesse {
+        text-align: center;
+        font-size: 14px;
+    }
+
+    .promesse_desc {
+        text-align: center;
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:425px){
+
+    .futties_condition{
+        padding: 64px 0 0 0;
+    }
+
+    .condition_delivery {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .first_condition, .second_condition, .thrid_condition, .fourth_condition {
+        max-width: max-content;
+    }
+
+    .promesse_desc {
+        margin-bottom: 50px;
+    }
+}

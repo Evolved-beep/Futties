@@ -6,14 +6,11 @@ import { addToCart } from "../redux/CartSlice";
 
 
 const JerseyDetail = ({img,title,description,price,id}) => {
-    const [selectedValue, setSelectedValue] = useState('')
     const dispatch = useDispatch()
 
     const handleClick = () => {
-        dispatch(addToCart({title, selectedValue, id, price, img}))
+        dispatch(addToCart({title, id, price, img}))
     }
-
-    console.log(title, price, id);
 
     return(
         <section>
@@ -26,27 +23,15 @@ const JerseyDetail = ({img,title,description,price,id}) => {
                         <h1>{title}</h1>
                         <h2>{price} €</h2>
                     </div>
-                    <div className="product_size">
-                        <label>Choisissez votre taille:</label>
-                        <select value={selectedValue} onChange={e => setSelectedValue(e.target.value)}>
-                            <option value={"S"}>S</option>
-                            <option value={"M"}>M</option>
-                            <option value={"L"}>L</option>
-                            <option value={"XL"}>XL</option>
-                        </select>
-                    </div>
                     <button className="btn_product" onClick={handleClick}>Ajouter au panier</button>
                     <ul className="condition">
                         <li>
-                        <p>Livraison garantie sous 15 jours</p>
+                        Livraison garantie sous 15 jours
                         </li>
                         <li>
-                            <p><strong>Echange et retour gratuits</strong>
-                                <br/>
-                                Vous avez jusque 60 jours après reception pour renvoyer votre article
-                            </p>
+                            <strong>Echange et retour gratuits</strong>      
                         </li>
-                        <li></li>
+                        <li>Vous avez jusque 60 jours après reception pour renvoyer votre article</li>
                     </ul>
                 </div>
             </div>
